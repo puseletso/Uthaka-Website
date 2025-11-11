@@ -40,6 +40,13 @@ node_modules/
 dist/
 build/
 .vercel/
+.next/
+out/
+
+# Next.js
+.next/
+out/
+next-env.d.ts
 
 # Temporary files
 tmp/

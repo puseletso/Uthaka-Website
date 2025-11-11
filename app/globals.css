@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-onest: 'Onest', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-satoshi: 'Satoshi', sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-primary-50 text-neutral-dark font-inter;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glassmorphism effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-neutral-dark/80 backdrop-blur-md border border-white/10;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-radial {
+    background: radial-gradient(
+      circle at 50% 0%,
+      rgba(159, 128, 218, 0.2) 0%,
+      rgba(180, 156, 197, 0.1) 50%,
+      transparent 100%
+    );
+  }
+
+  .gradient-purple {
+    background: linear-gradient(
+      135deg,
+      rgba(125, 95, 146, 0.8) 0%,
+      rgba(87, 62, 105, 0.9) 100%
+    );
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-700 to-accent-lavender text-white;
+    @apply px-6 py-3 rounded-pill font-semibold;
+    @apply transition-all duration-200 hover:scale-105 active:scale-95;
+    @apply shadow-glow hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border-2 border-primary-700 text-primary-700;
+    @apply px-6 py-3 rounded-pill font-semibold;
+    @apply transition-all duration-200 hover:bg-primary-700 hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-primary-700;
+    @apply px-6 py-3 rounded-pill font-medium;
+    @apply transition-all duration-200 hover:bg-primary-100;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-card p-6 shadow-card;
+    @apply transition-all duration-300 hover:shadow-card-hover;
+  }
+
+  .card-dark {
+    @apply bg-neutral-dark text-white rounded-card p-6 shadow-card;
+    @apply transition-all duration-300 hover:shadow-card-hover;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-3 rounded-button border border-neutral-lightGray;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-transparent;
+    @apply transition-all duration-200;
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-16 md:py-24 px-4 md:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-700 to-accent-lavender bg-clip-text text-transparent;
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
