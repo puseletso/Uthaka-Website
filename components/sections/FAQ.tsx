@@ -29,29 +29,34 @@ export default function FAQ({ className }: FAQProps) {
 
   const faqs: FAQItem[] = [
     {
-      question: 'How does the free trial work?',
+      question: 'How fast can I get started with Flowline?',
       answer:
-        'Our 14-day free trial gives you full access to all features with no credit card required. You can invite your team, create unlimited projects, and explore everything Flowline has to offer. If you decide to continue after the trial, simply choose a plan that works for you.',
+        'Setup takes just 7 minutes. No credit card required. Simply create an account, connect your tools with one-click integrations, and our AI will start suggesting automations immediately. Most teams are up and running within the first session.',
     },
     {
-      question: 'Can I change my plan later?',
+      question: 'What kind of tasks can Flowline automate?',
       answer:
-        'Absolutely! You can upgrade, downgrade, or cancel your plan at any time. Changes take effect immediately, and we will prorate any charges or credits based on your billing cycle. There are no long-term contracts or commitments.',
+        'Flowline automates repetitive workflows like data entry, report generation, email responses, task routing, file organization, and much more. Our AI learns your patterns and suggests new automations as it discovers opportunities to save you time.',
     },
     {
-      question: 'What payment methods do you accept?',
+      question: 'Is it really free?',
       answer:
-        'We accept all major credit cards (Visa, Mastercard, American Express, Discover) and PayPal. For annual plans, we also offer invoice billing for teams of 10 or more. All payments are processed securely through industry-standard encryption.',
+        'Yes! Flowline is free to start with unlimited automations for small teams. As you scale, we offer affordable plans starting at $29/month for larger teams. No hidden fees, no credit card required to start. You only pay when you need advanced features.',
     },
     {
-      question: 'Is my data secure?',
+      question: 'How secure is my data with Flowline?',
       answer:
-        'Yes, we take security very seriously. All data is encrypted in transit and at rest using bank-level AES-256 encryption. We\'re SOC 2 Type II certified, GDPR compliant, and undergo regular security audits. Your data is backed up daily across multiple secure locations.',
+        'Your data security is our top priority. We\'re ISO27001 certified and GDPR compliant. All data is encrypted in transit and at rest using bank-level AES-256 encryption. We never sell your data and undergo regular third-party security audits.',
     },
     {
-      question: 'Do you offer customer support?',
+      question: 'What if I need help setting up automations?',
       answer:
-        'We offer 24/7 email support for all plans, with priority support for Pro and Enterprise customers. Enterprise plans also include dedicated account management and phone support. Our average response time is under 2 hours, and we maintain a comprehensive help center with guides and tutorials.',
+        'We offer 24/7 live chat support to help you set up and optimize your workflows. Our AI also provides step-by-step guidance as you build automations. Plus, we have a comprehensive library of pre-built templates to get you started instantly.',
+    },
+    {
+      question: 'Can I cancel anytime?',
+      answer:
+        'Absolutely! There are no long-term contracts. You can cancel your plan at any time with one click. Your data remains accessible for 30 days after cancellation, and you can export everything before closing your account.',
     },
   ]
 
@@ -60,7 +65,7 @@ export default function FAQ({ className }: FAQProps) {
   }
 
   return (
-    <section id="faq" className={cn('section bg-white', className)}>
+    <section id="faq" className={cn('section bg-primary-100 py-24', className)}>
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -70,12 +75,11 @@ export default function FAQ({ className }: FAQProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-h2 font-bold text-neutral-dark mb-4 font-onest">
-            Frequently Asked <span className="text-gradient">Questions</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-dark mb-6 font-onest leading-tight">
+            Common questions answered
           </h2>
-          <p className="text-body text-neutral-gray max-w-2xl mx-auto">
-            Got questions? We've got answers. If you can't find what you're looking
-            for, feel free to contact our support team.
+          <p className="text-lg text-neutral-charcoal max-w-3xl mx-auto leading-relaxed">
+            Everything you need to know about Flowline. Can't find the answer you're looking for? Our support team is here to help 24/7.
           </p>
         </motion.div>
 
@@ -137,29 +141,16 @@ export default function FAQ({ className }: FAQProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-12"
+          className="text-center mt-16"
         >
-          <p className="text-body text-neutral-gray mb-4">
+          <p className="text-lg text-neutral-charcoal mb-6">
             Still have questions?
           </p>
           <a
-            href="#"
-            className="inline-flex items-center text-primary-700 font-semibold hover:text-primary-800 transition-colors"
+            href="#demo"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent-purple to-accent-lavender text-white font-semibold rounded-full hover:shadow-2xl transition-all duration-300 hover:scale-105 text-lg"
           >
-            Contact our support team
-            <svg
-              className="ml-2 w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
+            Chat with our team
           </a>
         </motion.div>
       </div>

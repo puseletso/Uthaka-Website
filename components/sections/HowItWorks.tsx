@@ -23,28 +23,28 @@ export default function HowItWorks({ className }: HowItWorksProps) {
     {
       number: '01',
       icon: UserPlus,
-      title: 'Sign Up & Onboard',
+      title: 'Sign up in 7 minutes',
       description:
-        'Create your account in seconds. No credit card required. Get instant access to all features with our 14-day free trial.',
+        'Create your free account and connect your tools. No credit card needed. Our AI will guide you through the setup process.',
     },
     {
       number: '02',
       icon: Settings,
-      title: 'Customize & Configure',
+      title: 'Integrate your workflows',
       description:
-        'Set up your workspace, invite your team, and configure settings to match your workflow. Our intuitive interface makes it easy.',
+        'Connect your favorite apps with one-click integrations. Flowline automatically detects repetitive tasks and suggests automations.',
     },
     {
       number: '03',
       icon: Rocket,
-      title: 'Launch & Grow',
+      title: 'Let AI automate everything',
       description:
-        'Start collaborating immediately. Track progress, manage projects, and scale your operations as your team grows.',
+        'Sit back and watch as Flowline handles the boring work. Our AI learns from your patterns and continuously optimizes your workflows.',
     },
   ]
 
   return (
-    <section id="how-it-works" className={cn('section bg-primary-50', className)}>
+    <section id="how-it-works" className={cn('section bg-white py-24', className)}>
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -54,12 +54,11 @@ export default function HowItWorks({ className }: HowItWorksProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-h2 font-bold text-neutral-dark mb-4 font-onest">
-            How It <span className="text-gradient">Works</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-dark mb-6 font-onest leading-tight">
+            Get started in 3 simple steps
           </h2>
-          <p className="text-body text-neutral-gray max-w-2xl mx-auto">
-            Get started in minutes with our simple three-step process. No technical
-            expertise required.
+          <p className="text-lg text-neutral-charcoal max-w-3xl mx-auto leading-relaxed">
+            Setting up automation has never been easier. Flowline does the heavy lifting so you can focus on what matters most.
           </p>
         </motion.div>
 

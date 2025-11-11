@@ -18,11 +18,11 @@ interface Testimonial {
 }
 
 /**
- * Testimonials section with masonry grid layout
+ * Testimonials section matching Flowline original design
  *
  * Features:
- * - 12 testimonial cards
- * - Masonry grid (responsive columns)
+ * - 6 testimonial cards
+ * - 2-column grid layout
  * - Star ratings
  * - Author info with avatars
  * - Staggered animations
@@ -31,117 +31,63 @@ interface Testimonial {
 export default function Testimonials({ className }: TestimonialsProps) {
   const testimonials: Testimonial[] = [
     {
-      name: 'Sarah Chen',
-      title: 'Product Manager',
-      company: 'TechCorp',
+      name: 'Sarah Mitchell',
+      title: 'Operations Director',
+      company: 'TechFlow Inc',
       content:
-        'Flowline transformed how our team collaborates. The intuitive interface and powerful features have boosted our productivity by 40%. Highly recommend!',
+        'Flowline saved our team 15+ hours every week. Tasks that used to take days now complete instantly. The ROI was immediate and the AI keeps getting smarter.',
       rating: 5,
       avatar: '👩‍💼',
     },
     {
-      name: 'Michael Rodriguez',
-      title: 'CEO',
-      company: 'StartupXYZ',
+      name: 'Marcus Chen',
+      title: 'Founder & CEO',
+      company: 'StartupHub',
       content:
-        'Best investment we made this year. The seamless integration with our existing tools saved us countless hours. Customer support is outstanding.',
+        'We went from spending $8K/month on manual processes to nearly zero with Flowline. The automation is flawless and setup took literally 7 minutes. Best tool we use.',
       rating: 5,
       avatar: '👨‍💼',
     },
     {
-      name: 'Emily Watson',
-      title: 'Design Lead',
-      company: 'Creative Studio',
+      name: 'Emma Rodriguez',
+      title: 'VP of Customer Success',
+      company: 'CloudScale',
       content:
-        'As a designer, I appreciate the clean UI and thoughtful UX. Everything is exactly where you expect it to be. No learning curve at all.',
+        'Our customer response time dropped from hours to seconds. Flowline handles all the repetitive support tasks while we focus on strategy. Game changer for our team.',
       rating: 5,
-      avatar: '👩‍🎨',
+      avatar: '👩‍💼',
     },
     {
-      name: 'James Park',
-      title: 'Engineering Manager',
-      company: 'DevOps Inc',
+      name: 'David Park',
+      title: 'Head of Engineering',
+      company: 'DataSync Solutions',
       content:
-        'Flowline handles our complex workflows effortlessly. The performance is incredible even with large datasets. Worth every penny.',
+        'Integration with our existing tools was seamless. One-click setup for Slack, HubSpot, and our internal APIs. Zero downtime, zero headaches. Highly recommend.',
       rating: 5,
       avatar: '👨‍💻',
     },
     {
       name: 'Lisa Anderson',
-      title: 'Marketing Director',
-      company: 'Growth Agency',
+      title: 'Marketing Lead',
+      company: 'GrowthLabs',
       content:
-        'Our team was up and running in minutes. The onboarding process is smooth, and the templates saved us weeks of setup time.',
+        'Flowline automated our entire lead nurturing workflow. What used to require 3 team members now runs perfectly on autopilot. We scaled 5x without hiring.',
       rating: 5,
       avatar: '👩‍💼',
     },
     {
-      name: 'David Kim',
-      title: 'CTO',
-      company: 'FinTech Solutions',
+      name: 'James Wilson',
+      title: 'Product Manager',
+      company: 'InnovateCo',
       content:
-        'Security and compliance were our top concerns. Flowline exceeded our expectations with SOC 2 certification and GDPR compliance built-in.',
+        'The AI learns our patterns and suggests optimizations we never thought of. Error rate dropped to near-zero and our team can finally focus on creative work instead of data entry.',
       rating: 5,
       avatar: '👨‍💼',
-    },
-    {
-      name: 'Rachel Green',
-      title: 'Operations Manager',
-      company: 'LogisticsHub',
-      content:
-        'Managing multiple projects across teams has never been easier. Real-time updates keep everyone on the same page. Game changer!',
-      rating: 5,
-      avatar: '👩‍💼',
-    },
-    {
-      name: 'Alex Turner',
-      title: 'Founder',
-      company: 'SaaS Startup',
-      content:
-        'The free trial convinced us immediately. Migration from our old tool was painless, and the ROI was evident within weeks.',
-      rating: 5,
-      avatar: '👨‍💼',
-    },
-    {
-      name: 'Sophia Martinez',
-      title: 'Project Lead',
-      company: 'Consulting Firm',
-      content:
-        'Client collaboration features are exceptional. Sharing progress and getting feedback is now seamless. Our clients love the transparency.',
-      rating: 5,
-      avatar: '👩‍💼',
-    },
-    {
-      name: 'Tom Wilson',
-      title: 'VP of Sales',
-      company: 'Enterprise Corp',
-      content:
-        'Scaled from 10 to 200 users without any issues. The platform grows with you. Enterprise support team is incredibly responsive.',
-      rating: 5,
-      avatar: '👨‍💼',
-    },
-    {
-      name: 'Nina Patel',
-      title: 'HR Director',
-      company: 'RemoteFirst',
-      content:
-        'Perfect for our distributed team. Time zone management and async communication features make remote work actually work.',
-      rating: 5,
-      avatar: '👩‍💼',
-    },
-    {
-      name: 'Chris Johnson',
-      title: 'Creative Director',
-      company: 'Design Agency',
-      content:
-        'Beautiful interface, powerful features. Our design team loves the aesthetic, while developers appreciate the robust API. Win-win.',
-      rating: 5,
-      avatar: '👨‍🎨',
     },
   ]
 
   return (
-    <section id="testimonials" className={cn('section bg-primary-50', className)}>
+    <section id="testimonials" className={cn('section bg-primary-100 py-24', className)}>
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -151,17 +97,16 @@ export default function Testimonials({ className }: TestimonialsProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-h2 font-bold text-neutral-dark mb-4 font-onest">
-            Loved by <span className="text-gradient">Thousands</span> of Users
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-dark mb-6 font-onest leading-tight">
+            Trusted by teams who value their time
           </h2>
-          <p className="text-body text-neutral-gray max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our customers have to say
-            about their experience with Flowline.
+          <p className="text-lg text-neutral-charcoal max-w-3xl mx-auto leading-relaxed">
+            See how Flowline is helping thousands of teams automate the boring stuff and focus on what actually matters.
           </p>
         </motion.div>
 
-        {/* Testimonials Grid (Masonry-style) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Testimonials Grid (2-column) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -217,30 +162,14 @@ export default function Testimonials({ className }: TestimonialsProps) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center mt-16"
         >
-          <p className="text-body text-neutral-gray mb-4">
-            Join thousands of satisfied customers
-          </p>
           <a
-            href="#"
-            className="inline-flex items-center text-primary-700 font-semibold hover:text-primary-800 transition-colors"
+            href="#demo"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent-purple to-accent-lavender text-white font-semibold rounded-full hover:shadow-2xl transition-all duration-300 hover:scale-105 text-lg"
           >
-            Start your free trial today
-            <svg
-              className="ml-2 w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
+            See Flowline in Action
           </a>
         </motion.div>
       </div>

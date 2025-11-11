@@ -77,7 +77,7 @@ export default function DemoForm({ className }: DemoFormProps) {
   }
 
   return (
-    <section className={cn('section bg-primary-50', className)}>
+    <section id="demo" className={cn('section bg-white py-24', className)}>
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -87,12 +87,11 @@ export default function DemoForm({ className }: DemoFormProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-h2 font-bold text-neutral-dark mb-4 font-onest">
-            Request a <span className="text-gradient">Demo</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-dark mb-6 font-onest leading-tight">
+            Ready to automate the boring stuff?
           </h2>
-          <p className="text-body text-neutral-gray max-w-2xl mx-auto">
-            See Flowline in action. Fill out the form below and our team will get in
-            touch to schedule a personalized demo.
+          <p className="text-lg text-neutral-charcoal max-w-3xl mx-auto leading-relaxed">
+            Start your free 7-minute setup. No credit card required. Join 2,500+ teams who already use Flowline to work smarter.
           </p>
         </motion.div>
 
@@ -104,7 +103,7 @@ export default function DemoForm({ className }: DemoFormProps) {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="bg-white rounded-card shadow-card p-8 md:p-12">
+          <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-primary-200/50">
             {isSubmitted ? (
               // Success Message
               <motion.div
@@ -247,7 +246,7 @@ export default function DemoForm({ className }: DemoFormProps) {
                   disabled={isSubmitting}
                   className="w-full"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Request Demo'}
+                  {isSubmitting ? 'Getting started...' : 'Get Flowline - Free'}
                 </Button>
 
                 {/* Privacy Note */}

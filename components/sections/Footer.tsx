@@ -54,12 +54,11 @@ export default function Footer({ className }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <a href="/" className="text-2xl font-bold text-gradient mb-4 inline-block font-onest">
+            <a href="/" className="text-2xl font-bold text-white mb-4 inline-block font-onest">
               Flowline
             </a>
             <p className="text-neutral-lightGray text-sm mb-6">
-              Streamline your workflow and boost team productivity with our all-in-one
-              collaboration platform.
+              Automate the boring stuff with AI. Save 4+ hours every day and focus on what actually matters for your business.
             </p>
 
             {/* Social Links */}
@@ -136,7 +135,7 @@ export default function Footer({ className }: FooterProps) {
               © {new Date().getFullYear()} Flowline. All rights reserved.
             </p>
             <p className="text-neutral-lightGray text-sm">
-              Made with ❤️ by Uthaka Team
+              Built with AI automation tools
             </p>
           </div>
         </div>
