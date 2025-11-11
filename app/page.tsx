@@ -2,6 +2,9 @@ import Navigation from '@/components/sections/Navigation'
 import Hero from '@/components/sections/Hero'
 import Features from '@/components/sections/Features'
 import HowItWorks from '@/components/sections/HowItWorks'
+import ComparisonTable from '@/components/sections/ComparisonTable'
+import Testimonials from '@/components/sections/Testimonials'
+import DemoForm from '@/components/sections/DemoForm'
 import FAQ from '@/components/sections/FAQ'
 import Footer from '@/components/sections/Footer'
 
@@ -13,16 +16,9 @@ export default function Home() {
         <Hero />
         <Features />
         <HowItWorks />
-
-        {/* Testimonials placeholder */}
-        <section id="testimonials" className="section bg-primary-50">
-          <div className="container-custom">
-            <h2 className="text-h2 font-bold text-center text-gradient mb-4">
-              Testimonials Coming Soon
-            </h2>
-          </div>
-        </section>
-
+        <ComparisonTable />
+        <Testimonials />
+        <DemoForm />
         <FAQ />
       </main>
       <Footer />
