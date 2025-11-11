@@ -1,107 +1,52 @@
 'use client'
 
-import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Rocket } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import Button from '@/components/ui/Button'
 
 export interface NavigationProps {
   className?: string
 }
 
 /**
- * Navigation component matching Flowline design system
+ * Navigation matching Flowline original design
  *
  * Features:
- * - Fixed position with glassmorphism effect
- * - Responsive mobile menu
- * - Smooth scroll to sections
- * - Active link highlighting
+ * - Minimal design: Logo + CTA button only
+ * - Fixed header
+ * - Light background with subtle border
+ * - No menu links
  */
 export default function Navigation({ className }: NavigationProps) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  const navLinks = [
-    { name: 'Features', href: '#features' },
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'FAQ', href: '#faq' },
-  ]
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
-
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 glass border-b border-white/20',
+        'fixed top-0 left-0 right-0 z-50',
+        'bg-primary-100/80 backdrop-blur-md',
+        'border-b border-primary-200/50',
         className
       )}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20 px-4 md:px-0">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="/" className="text-2xl font-bold text-gradient font-onest">
+          <a href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 bg-gradient-to-br from-accent-purple to-accent-lavender rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Rocket className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xl font-bold text-neutral-dark">
               Flowline
-            </a>
-          </div>
+            </span>
+          </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-neutral-dark hover:text-primary-700 transition-colors duration-200"
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-
-          {/* Desktop CTA */}
-          <div className="hidden md:block">
-            <Button variant="primary" size="sm">
-              Get Started
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMobileMenu}
-            className="md:hidden p-2 text-neutral-dark hover:text-primary-700 transition-colors"
-            aria-label="Toggle menu"
-            aria-expanded={isMobileMenuOpen}
+          {/* CTA Button */}
+          <a
+            href="#demo"
+            className="inline-flex items-center justify-center px-6 py-2.5 bg-accent-purple/10 text-accent-purple hover:bg-accent-purple/20 font-semibold rounded-full transition-all duration-300 border border-accent-purple/20 hover:border-accent-purple/40 text-sm md:text-base"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            Get Flowline - it's Free
+          </a>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden glass border-t border-white/20">
-          <div className="container-custom py-4 space-y-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block py-2 text-base font-medium text-neutral-dark hover:text-primary-700 transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="pt-4">
-              <Button variant="primary" size="md" className="w-full">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
   )
 }

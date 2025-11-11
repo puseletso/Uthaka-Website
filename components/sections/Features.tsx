@@ -1,99 +1,174 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Zap, Shield, Users } from 'lucide-react'
+import { ArrowRight, Workflow, BarChart3, Plug } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import Card from '@/components/ui/Card'
 
 export interface FeaturesProps {
   className?: string
 }
 
 /**
- * Features section matching Flowline design system
+ * Features section matching Flowline original design
  *
  * Features:
- * - 3 feature cards with icons
- * - Alternating layouts for visual interest
- * - Animated entrance with Framer Motion
- * - Hover effects on cards
- * - Fully responsive
+ * - 3 alternating feature blocks
+ * - Illustrations on alternating sides
+ * - Label + Heading + Description + CTA
+ * - Workflow diagram, Analytics dashboard, Integration logos
  */
 export default function Features({ className }: FeaturesProps) {
   const features = [
     {
-      icon: Zap,
-      title: 'Lightning Fast Performance',
+      label: 'Automate Workflows',
+      heading: 'Save 4+ hours every day',
       description:
-        'Experience blazing fast load times and seamless interactions. Our optimized infrastructure ensures your team can work without delays, boosting productivity across the board.',
-      color: 'text-yellow-500',
+        'Let our intelligent automation tools handle repetitive tasks, so you can reclaim your time and focus on strategic initiatives.',
+      icon: Workflow,
+      imageSide: 'right',
+      illustration: 'workflow',
     },
     {
-      icon: Shield,
-      title: 'Enterprise-Grade Security',
+      label: 'Real-Time Analytics',
+      heading: 'Make informed decisions instantly',
       description:
-        'Your data is protected with bank-level encryption and advanced security protocols. Stay compliant with industry standards while maintaining complete control over your information.',
-      color: 'text-green-500',
+        'Gain instant insights into your operations with dynamic dashboards and reports, empowering you to act on data the moment it matters.',
+      icon: BarChart3,
+      imageSide: 'left',
+      illustration: 'analytics',
     },
     {
-      icon: Users,
-      title: 'Seamless Collaboration',
+      label: 'Seamless Integrations',
+      heading: 'Connect to all your tools',
       description:
-        'Work together in real-time with your team, no matter where they are. Share files, communicate instantly, and keep everyone aligned on project goals and deliverables.',
-      color: 'text-blue-500',
+        'Integrate your favorite apps effortlessly, ensuring a smooth flow of information and reducing friction across your tech stack.',
+      icon: Plug,
+      imageSide: 'right',
+      illustration: 'integrations',
     },
   ]
 
   return (
-    <section id="features" className={cn('section bg-white', className)}>
+    <section id="features" className={cn('section bg-white py-24', className)}>
       <div className="container-custom">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-h2 font-bold text-neutral-dark mb-4 font-onest">
-            Powerful Features for{' '}
-            <span className="text-gradient">Modern Teams</span>
-          </h2>
-          <p className="text-body text-neutral-gray max-w-2xl mx-auto">
-            Everything you need to streamline your workflow, collaborate effectively,
-            and deliver exceptional results.
-          </p>
-        </motion.div>
-
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="space-y-32">
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.7, delay: index * 0.2 }}
+              className={cn(
+                'grid md:grid-cols-2 gap-12 lg:gap-16 items-center',
+                feature.imageSide === 'left' && 'md:grid-flow-dense'
+              )}
             >
-              <Card hoverable className="h-full">
-                {/* Icon */}
-                <div
-                  className={cn(
-                    'w-12 h-12 rounded-button flex items-center justify-center mb-6',
-                    'bg-gradient-to-br from-primary-100 to-primary-200'
-                  )}
-                >
-                  <feature.icon className={cn('w-6 h-6', feature.color)} />
+              {/* Text Content */}
+              <div className={cn(feature.imageSide === 'left' && 'md:col-start-2')}>
+                <div className="inline-flex items-center px-4 py-2 bg-primary-100 rounded-full mb-6">
+                  <feature.icon className="w-4 h-4 text-accent-purple mr-2" />
+                  <span className="text-sm font-bold text-neutral-dark uppercase tracking-wide">
+                    {feature.label}
+                  </span>
                 </div>
 
-                {/* Content */}
-                <h3 className="text-h4 font-semibold text-neutral-dark mb-3 font-onest">
-                  {feature.title}
-                </h3>
-                <p className="text-body text-neutral-gray leading-relaxed">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-dark mb-6 leading-tight">
+                  {feature.heading}
+                </h2>
+
+                <p className="text-lg text-neutral-charcoal mb-8 leading-relaxed">
                   {feature.description}
                 </p>
-              </Card>
+
+                <a
+                  href="#demo"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-accent-purple to-accent-lavender text-white font-semibold rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+                >
+                  Get Started for Free
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+
+              {/* Illustration */}
+              <div className={cn(feature.imageSide === 'left' && 'md:col-start-1 md:row-start-1')}>
+                <div className="relative aspect-square bg-gradient-to-br from-primary-50 to-primary-100 rounded-3xl p-8 shadow-xl border border-primary-200/50">
+                  {/* Workflow Illustration */}
+                  {feature.illustration === 'workflow' && (
+                    <div className="space-y-4 h-full flex flex-col justify-center">
+                      <div className="flex items-center gap-3 bg-white p-4 rounded-xl shadow-md">
+                        <div className="w-10 h-10 bg-accent-purple/20 rounded-lg flex items-center justify-center">
+                          <div className="w-5 h-5 bg-accent-purple rounded-full" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="h-2 bg-neutral-lightGray rounded w-3/4 mb-2" />
+                          <div className="h-2 bg-neutral-lightGray rounded w-1/2" />
+                        </div>
+                      </div>
+                      <div className="flex justify-center">
+                        <div className="w-px h-8 bg-accent-purple/30" />
+                      </div>
+                      <div className="flex items-center gap-3 bg-white p-4 rounded-xl shadow-md">
+                        <div className="w-10 h-10 bg-accent-lavender/20 rounded-lg flex items-center justify-center">
+                          <div className="w-5 h-5 bg-accent-lavender rounded-full" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="h-2 bg-neutral-lightGray rounded w-3/4 mb-2" />
+                          <div className="h-2 bg-neutral-lightGray rounded w-1/2" />
+                        </div>
+                      </div>
+                      <div className="flex justify-center">
+                        <div className="w-px h-8 bg-accent-purple/30" />
+                      </div>
+                      <div className="flex items-center gap-3 bg-white p-4 rounded-xl shadow-md">
+                        <div className="w-10 h-10 bg-accent-purple/20 rounded-lg flex items-center justify-center">
+                          <div className="w-5 h-5 bg-accent-purple rounded-full" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="h-2 bg-neutral-lightGray rounded w-3/4 mb-2" />
+                          <div className="h-2 bg-neutral-lightGray rounded w-1/2" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Analytics Illustration */}
+                  {feature.illustration === 'analytics' && (
+                    <div className="h-full flex flex-col justify-center space-y-4">
+                      <div className="bg-white p-6 rounded-xl shadow-md">
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="h-3 bg-neutral-lightGray rounded w-32" />
+                          <div className="h-3 bg-accent-purple/20 rounded w-16 font-bold text-xs flex items-center justify-center text-accent-purple">
+                            98%
+                          </div>
+                        </div>
+                        <div className="flex items-end gap-2 h-32">
+                          <div className="flex-1 bg-gradient-to-t from-accent-purple to-accent-purple/60 rounded-t-lg h-20" />
+                          <div className="flex-1 bg-gradient-to-t from-accent-lavender to-accent-lavender/60 rounded-t-lg h-28" />
+                          <div className="flex-1 bg-gradient-to-t from-accent-purple to-accent-purple/60 rounded-t-lg h-16" />
+                          <div className="flex-1 bg-gradient-to-t from-accent-lavender to-accent-lavender/60 rounded-t-lg h-full" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Integrations Illustration */}
+                  {feature.illustration === 'integrations' && (
+                    <div className="h-full flex items-center justify-center">
+                      <div className="grid grid-cols-3 gap-4">
+                        {[...Array(9)].map((_, i) => (
+                          <div
+                            key={i}
+                            className="w-16 h-16 bg-white rounded-xl shadow-md flex items-center justify-center hover:scale-110 transition-transform duration-300"
+                          >
+                            <div className="w-8 h-8 bg-gradient-to-br from-accent-purple to-accent-lavender rounded-lg opacity-60" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

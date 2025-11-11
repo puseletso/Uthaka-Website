@@ -1,51 +1,49 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckCircle2 } from 'lucide-react'
+import { Star, Clock, Shield, CheckCircle2, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import Button from '@/components/ui/Button'
 
 export interface HeroProps {
   className?: string
 }
 
 /**
- * Hero section matching Flowline design system
+ * Hero section matching Flowline original design
  *
  * Features:
- * - Full viewport height
- * - Gradient background with radial overlay
- * - Animated entrance with Framer Motion
- * - Trust badges/social proof
- * - Dual CTAs (primary + secondary)
- * - Responsive layout
+ * - Star rating badge
+ * - "Boring work made simple with AI" heading
+ * - Two gradient buttons
+ * - Trust badges (7 MIN SETUP, GDPR, ISO27001)
+ * - Dashboard preview illustration
  */
 export default function Hero({ className }: HeroProps) {
-  const trustBadges = [
-    'No credit card required',
-    '14-day free trial',
-    'Cancel anytime',
-  ]
-
   return (
     <section
+      id="hero"
       className={cn(
         'relative min-h-screen flex items-center justify-center',
-        'gradient-radial pt-24 pb-16',
+        'bg-primary-100 pt-32 pb-20',
         className
       )}
     >
       <div className="container-custom">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge/Announcement */}
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Star Rating Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6"
+            className="mb-8 flex items-center justify-center gap-2"
           >
-            <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-pill text-sm font-medium">
-              ✨ New: Advanced Analytics Dashboard
+            <div className="flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 fill-orange-400 text-orange-400" />
+              ))}
+            </div>
+            <span className="text-neutral-gray font-medium">
+              Trusted by 2,500+ teams
             </span>
           </motion.div>
 
@@ -54,10 +52,9 @@ export default function Hero({ className }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-hero font-bold text-neutral-dark mb-6 font-onest"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-dark mb-6 font-onest leading-tight tracking-tight"
           >
-            Streamline Your Workflow with{' '}
-            <span className="text-gradient">Flowline</span>
+            Boring work made simple with AI
           </motion.h1>
 
           {/* Subheading */}
@@ -65,67 +62,95 @@ export default function Hero({ className }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-body md:text-xl text-neutral-gray mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-neutral-charcoal mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            The all-in-one platform that helps teams collaborate, manage projects,
-            and deliver results faster. Join thousands of satisfied customers.
+            Flowline plugs into your existing workflows, so you can ditch the
+            boring stuff and focus on growth.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
-            <Button variant="primary" size="lg">
-              Start Free Trial
-            </Button>
-            <Button variant="secondary" size="lg">
-              Watch Demo
-            </Button>
+            <a
+              href="#demo"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent-purple to-accent-lavender text-white font-semibold rounded-full hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
+            >
+              Get Started for Free
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="#features"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-neutral-dark font-semibold rounded-full border border-neutral-lightGray hover:border-primary-300 hover:shadow-lg transition-all duration-300"
+            >
+              Learn how
+            </a>
           </motion.div>
 
           {/* Trust Badges */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap items-center justify-center gap-6 text-sm text-neutral-gray"
+            className="flex flex-wrap justify-center gap-6 mb-16 text-sm text-neutral-gray"
           >
-            {trustBadges.map((badge, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <CheckCircle2 size={18} className="text-primary-700" />
-                <span>{badge}</span>
-              </div>
-            ))}
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4" />
+              <span className="uppercase tracking-wide font-medium">7 min setup</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Shield className="w-4 h-4" />
+              <span className="uppercase tracking-wide font-medium">GDPR Compliant</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4" />
+              <span className="uppercase tracking-wide font-medium">ISO27001</span>
+            </div>
           </motion.div>
 
-          {/* Hero Image/Illustration Placeholder */}
+          {/* Dashboard Preview */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-16"
+            className="relative max-w-6xl mx-auto"
           >
-            <div className="relative rounded-card overflow-hidden shadow-2xl">
-              {/* Placeholder for hero image/dashboard screenshot */}
-              <div className="aspect-video bg-gradient-to-br from-primary-100 to-accent-pink/20 flex items-center justify-center">
-                <p className="text-neutral-gray text-lg">
-                  Dashboard Preview / Hero Image
-                </p>
-              </div>
+            <div className="relative aspect-[16/10] bg-white rounded-3xl shadow-2xl p-6 border border-neutral-lightGray overflow-hidden">
+              {/* Dashboard Preview Illustration Placeholder */}
+              <div className="w-full h-full bg-gradient-to-br from-primary-50 via-white to-accent-lightPurple/30 rounded-2xl flex items-center justify-center relative">
+                {/* Placeholder Content */}
+                <div className="text-neutral-gray opacity-50">Dashboard Preview</div>
 
-              {/* Decorative glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-t from-transparent to-primary-50/50 pointer-events-none" />
+                {/* Mock UI Elements */}
+                <div className="absolute top-4 left-4 w-32 h-8 bg-white rounded-lg shadow-sm" />
+                <div className="absolute top-4 right-4 flex gap-2">
+                  <div className="w-8 h-8 bg-white rounded-full shadow-sm" />
+                  <div className="w-8 h-8 bg-white rounded-full shadow-sm" />
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 h-32 bg-white/80 rounded-xl shadow-md" />
+              </div>
             </div>
+
+            {/* Glow Effect */}
+            <div className="absolute inset-0 bg-gradient-to-t from-primary-100 via-transparent to-transparent rounded-3xl opacity-60 pointer-events-none" />
           </motion.div>
         </div>
       </div>
 
-      {/* Background decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary-400/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent-lavender/20 rounded-full blur-3xl pointer-events-none" />
+      {/* Trusted by Text */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+        className="absolute bottom-12 left-0 right-0 text-center"
+      >
+        <p className="text-sm text-neutral-gray font-medium">
+          Trusted to do the boring stuff for high-performing teams worldwide
+        </p>
+      </motion.div>
     </section>
   )
 }
