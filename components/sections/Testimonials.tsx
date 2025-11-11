@@ -191,7 +191,7 @@ export default function Testimonials({ className }: TestimonialsProps) {
 
               {/* Content */}
               <p className="text-body text-neutral-gray mb-6 leading-relaxed">
-                "{testimonial.content}"
+                &ldquo;{testimonial.content}&rdquo;
               </p>
 
               {/* Author */}

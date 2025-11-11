@@ -259,8 +259,7 @@ export default function DemoForm({ className }: DemoFormProps) {
                   and{' '}
                   <a href="#" className="text-primary-700 hover:underline">
                     Terms of Service
-                  </a>
-                  .
+                  </a>.
                 </p>
               </form>
             )}

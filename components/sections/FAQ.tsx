@@ -36,7 +36,7 @@ export default function FAQ({ className }: FAQProps) {
     {
       question: 'Can I change my plan later?',
       answer:
-        'Absolutely! You can upgrade, downgrade, or cancel your plan at any time. Changes take effect immediately, and we\'ll prorate any charges or credits based on your billing cycle. There are no long-term contracts or commitments.',
+        'Absolutely! You can upgrade, downgrade, or cancel your plan at any time. Changes take effect immediately, and we will prorate any charges or credits based on your billing cycle. There are no long-term contracts or commitments.',
     },
     {
       question: 'What payment methods do you accept?',

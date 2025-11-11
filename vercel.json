@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "uthaka-flowline-clone",
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "outputDirectory": ".next"
+}
