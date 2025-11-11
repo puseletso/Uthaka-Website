@@ -1,0 +1,53 @@
+# Auto-save system files
+.auto-save-manager.sh
+auto-save-control.sh
+.auto_checkpoint.log
+.auto_checkpoint.pid
+.auto_save.log
+.auto_save.error.log
+.auto_save.pid
+.session-resume.sh
+.update-progress.sh
+.create-milestone.sh
+com.uthaka.autosave.plist
+
+# Memory backups
+.memory_backups/
+
+# Development files
+.DS_Store
+*.log
+*.pid
+
+# Documentation (keep for this project, but can exclude certain ones)
+# Keep README.md, PROJECT_SUMMARY.md, SOLUTION_PIPELINE.md
+
+# Playwright screenshots (optional - remove if you want to commit them)
+.playwright-mcp/
+
+# IDE
+.vscode/
+.idea/
+
+# Node modules (if using npm)
+node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# Build outputs
+dist/
+build/
+.vercel/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*~
+
+# OS files
+Thumbs.db
+.DS_Store
