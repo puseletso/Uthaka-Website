@@ -1,22 +1,39 @@
+import Navigation from '@/components/sections/Navigation'
+import Hero from '@/components/sections/Hero'
+import Features from '@/components/sections/Features'
+
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <div className="container-custom section">
-        <h1 className="text-hero font-bold text-center mb-6 text-gradient">
-          Uthaka Project
-        </h1>
-        <p className="text-body text-center text-neutral-gray max-w-2xl mx-auto">
-          Flowline website clone - Phase 1: Project Setup Complete
-        </p>
-        <div className="mt-12 flex justify-center gap-4">
-          <button className="btn-primary">
-            Get Started
-          </button>
-          <button className="btn-secondary">
-            Learn More
-          </button>
-        </div>
-      </div>
-    </main>
+    <>
+      <Navigation />
+      <main className="min-h-screen">
+        <Hero />
+        <Features />
+
+        <section id="how-it-works" className="section bg-primary-50">
+          <div className="container-custom">
+            <h2 className="text-h2 font-bold text-center text-gradient mb-4">
+              How It Works Coming Soon
+            </h2>
+          </div>
+        </section>
+
+        <section id="testimonials" className="section bg-white">
+          <div className="container-custom">
+            <h2 className="text-h2 font-bold text-center text-gradient mb-4">
+              Testimonials Coming Soon
+            </h2>
+          </div>
+        </section>
+
+        <section id="faq" className="section bg-primary-50">
+          <div className="container-custom">
+            <h2 className="text-h2 font-bold text-center text-gradient mb-4">
+              FAQ Coming Soon
+            </h2>
+          </div>
+        </section>
+      </main>
+    </>
   )
 }
